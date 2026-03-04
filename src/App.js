@@ -1,27 +1,49 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./components/Navbar";
+import { BrowserRouter,Routes,Route } from "react-router-dom";
+
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
-import AdminDashboard from "./pages/admin/AdminDashboard";
+
 import StudentDashboard from "./pages/student/StudentDashboard";
+import EventDetails from "./pages/student/EventDetails";
+import PaymentPage from "./pages/student/PaymentPage";
+import SuccessPage from "./pages/student/SuccessPage";
+import MyRegistrations from "./pages/student/MyRegistrations";
+import InvoicePage from "./pages/student/InvoicePage";
 
-function Home() {
-  return <h2>Home Page</h2>;
-}
+import AdminDashboard from "./pages/admin/AdminDashboard";
 
-function App() {
-  return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/admin" element={<AdminDashboard />} />
-        <Route path="/student" element={<StudentDashboard />} />
-      </Routes>
-    </Router>
-  );
+import { EventProvider } from "./context/EventContext";
+
+function App(){
+
+return(
+
+<EventProvider>
+
+<BrowserRouter>
+
+<Routes>
+
+<Route path="/" element={<Login/>}/>
+<Route path="/register" element={<Register/>}/>
+
+<Route path="/student" element={<StudentDashboard/>}/>
+<Route path="/event/:id" element={<EventDetails/>}/>
+<Route path="/payment/:id" element={<PaymentPage/>}/>
+<Route path="/success" element={<SuccessPage/>}/>
+<Route path="/registrations" element={<MyRegistrations/>}/>
+<Route path="/invoice/:id" element={<InvoicePage/>}/>
+
+<Route path="/admin" element={<AdminDashboard/>}/>
+
+</Routes>
+
+</BrowserRouter>
+
+</EventProvider>
+
+)
+
 }
 
 export default App;

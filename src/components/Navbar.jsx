@@ -4,13 +4,10 @@ function Navbar() {
   return (
     <nav style={styles.nav}>
       <h2 style={styles.logo}>CampusEvent</h2>
-
       <div>
-        <Link to="/" style={styles.link}>Home</Link>
-        <Link to="/login" style={styles.link}>Login</Link>
-        <Link to="/register" style={styles.link}>Register</Link>
         <Link to="/student" style={styles.link}>Student</Link>
         <Link to="/admin" style={styles.link}>Admin</Link>
+        <Link to="/login" style={styles.link}>Logout</Link>
       </div>
     </nav>
   );
@@ -22,10 +19,10 @@ const styles = {
     justifyContent: "space-between",
     alignItems: "center",
     padding: "15px 40px",
-    backgroundColor: "#111",
-    color: "white"
+    backgroundColor: "#208fe4"
   },
   logo: {
+    color: "white",
     margin: 0
   },
   link: {
